@@ -245,7 +245,7 @@ class Integer(Base):
                 integer
         """
         if self.value is not None:
-            if type(self.value) not in int:
+            if type(self.value) is not int:
                 raise TypeError('expected (one of): {0}, observed: {1}'.format(
                     int, type(self.value)))
             else:
@@ -647,7 +647,7 @@ class Enumeration(Base):
                 raise TypeError(
                     'enumeration {0} must be of type {1}'.format(
                         self.value, self.enum))
-            if type(self.value.value) not in int:
+            if type(self.value.value) is not int:
                 raise TypeError('enumeration value must be an int')
             else:
                 if self.value.value > Enumeration.MAX:
@@ -1120,7 +1120,7 @@ class Interval(Base):
                 32-bit integer
         """
         if self.value is not None:
-            if type(self.value) not in int:
+            if type(self.value) is not int:
                 raise TypeError('expected (one of): {0}, observed: {1}'.format(
                     int, type(self.value)))
             else:
